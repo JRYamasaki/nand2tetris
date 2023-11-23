@@ -15,6 +15,19 @@ CHIP PC {
     IN in[16],load,inc,reset;
     OUT out[16];
 
+    // 2 ram 8
+    // reset, load 0 into both registers
+    // load, address the two the two different registers
+    // in, output of registers goes into inc16 and ten causes an inc16
+
     PARTS:
-    // Put your code here:
+    Or(a=inc, b=load, out=x);
+    Or(a=x, b=reset, out=l);
+
+    Register(in=regIn, load=l, out=out, out=input16);
+    Inc16(in=input16, out=output16);
+
+    Mux16(a=false, b=output16, sel=inc, out=incOut);
+    Mux16(a=incOut, b=in, sel=load, out=loadOut);
+    Mux16(a=loadOut, b=false, sel=reset, out=regIn);
 }
