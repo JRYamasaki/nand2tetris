@@ -25,18 +25,18 @@ D=A
 @2
 M=D
 
+// jump to end if @1 or @0 is zero
+@1
+D=M
+@END
+D;JEQ
+
+@0
+D=M
+@END
+D;JEQ
+
 (LOOP)
-    // jump to end if @1 or @0 is zero
-    @1
-    D=M
-    @END
-    D;JEQ
-
-    @0
-    D=M
-    @END
-    D;JEQ
-
     // load @0
     @0
     D=M
@@ -48,6 +48,12 @@ M=D
     // subtract 1 from @1
     @1
     M=M-1
+
+    // jump to end if @1 or @0 is zero
+    @1
+    D=M
+    @END
+    D;JEQ
 
     @LOOP
     0;JMP
