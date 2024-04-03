@@ -57,8 +57,6 @@ M=0
     @addr
     A=M
     M=0 // set row to be white
-    @CONTINUE
-    0;JMP
 (CONTINUE)
 
     @i
