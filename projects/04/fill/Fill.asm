@@ -38,12 +38,27 @@ M=0
     D=M
     @n
     D=D-M
-    @END
-    D;JGT // check if i < n
+    @RESET
+    D;JEQ // check if i < n
 
+    @KBD
+    D=M
+    @EMPTY
+    D;JGT
+
+(FILL)
     @addr
     A=M
     M=-1 // set row to be black
+    @CONTINUE
+    0;JMP
+(EMPTY)
+    @addr
+    A=M
+    M=0 // set row to be white
+    @CONTINUE
+    0;JMP
+(CONTINUE)
 
     @i
     M=M+1 // increment i
@@ -51,9 +66,16 @@ M=0
     D=A
     @addr
     M=D+M // move to the next 16 set of pixels
+
     @LOOP
     0;JMP
 
-(END)
-    @END
+(RESET)
+    @i
+    M=0
+    @16384
+    D=A
+    @addr
+    M=D
+    @LOOP
     0;JMP
