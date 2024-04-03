@@ -45,7 +45,7 @@ M=0
     @KBD
     D=M
     @EMPTY
-    D;JEQ
+    D;JEQ // Check if any key is pressed
 
 (FILL)
     @addr
