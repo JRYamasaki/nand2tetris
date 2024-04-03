@@ -15,6 +15,7 @@
 
 // keyboard input kept in 24576, @KBD
 
+// Loading the beginning screen address into addr
 @SCREEN
 D=A
 @addr
@@ -73,7 +74,7 @@ M=0
 (RESET)
     @i
     M=0
-    @16384
+    @SCREEN
     D=A
     @addr
     M=D
