@@ -44,7 +44,7 @@ M=0
     @KBD
     D=M
     @EMPTY
-    D;JGT
+    D;JEQ
 
 (FILL)
     @addr
