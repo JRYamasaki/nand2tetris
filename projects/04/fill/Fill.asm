@@ -61,10 +61,8 @@ M=0
 
     @i
     M=M+1 // increment i
-    @1
-    D=A
     @addr
-    M=D+M // move to the next 16 set of pixels
+    M=M+1 // move to the next 16 set of pixels
 
     @LOOP
     0;JMP
